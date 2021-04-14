@@ -3,11 +3,11 @@ import "./style.scss"
 import "bootstrap/dist/js/bootstrap"
 import React from 'react';
 import ReactDom from 'react-dom';
-import Game from './Game.js';
+import Calculator from './Calculator.js';
 
 ReactDom.render(
     <React.StrictMode>
-        <Game/>
+        <Calculator/>
     </React.StrictMode>,
     document.getElementById("root")
 );
