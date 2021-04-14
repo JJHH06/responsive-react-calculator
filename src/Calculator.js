@@ -20,34 +20,92 @@ function Calculator(){
 
     //funcion que cambia la pantalla
     const numberPressed = (numero) =>{
-        if (pantalla.length < 9) {
-            let resultadoPantalla = pantalla + numero;
+        let textoPantalla = pantalla;
+        if(textoPantalla === "ERROR"){
+            textoPantalla = "0";
+        }
+        if (textoPantalla.length < 9) {
+            let resultadoPantalla = textoPantalla + numero;
             if (resultadoPantalla[0] === "0" && !(resultadoPantalla.includes("."))) {
                 resultadoPantalla = resultadoPantalla.substring(1)
             }
             setPantalla(resultadoPantalla);
         }
     }
+
+    const handleCOpertor =()=>{
+        setStackOperaciones("")
+        setPantalla("0");
+    }
+    const handleCeOpertor =()=>{
+        if(pantalla.length ===1|| pantalla ==="ERROR"){
+            setPantalla("0");
+        } else{
+            setPantalla(pantalla.slice(0, -1));
+        }
+
+        
+    }
+    
+    const handleModificationOperator = (operatorName) => {
+        if (operatorName === "CE"){
+            handleCeOpertor();
+        } else{
+            handleCOpertor();
+        }
+    }
+
+
     const calcularResultado = () =>{
         const resultado = Mexp.eval(stackOperaciones+pantalla);
-        setPantalla(resultado.toString());
+        if(!Number.isFinite(resultado) || Number.isNaN(resultado) || resultado.toString().length >9){
+            setPantalla("ERROR")
+        } else{
+            setPantalla(resultado.toString()); 
+        }
         setStackOperaciones("")
     }
 
     const operatorPressed = (operator) =>{
-        let lineaOperaciones = stackOperaciones
-        // if(lineaOperaciones.length > 1){
-        //     if("+- Mod \\/".includes[operator]){
-        //         lineaOperaciones = lineaOperaciones.substring(0, lineaOperaciones.lastIndexOf(operator))
-        //     }
-        // }
-        lineaOperaciones += pantalla + operator;
-        setStackOperaciones(lineaOperaciones);
+        if(!(pantalla === "ERROR")){
+            let lineaOperaciones = stackOperaciones;
+            lineaOperaciones += pantalla + operator;
+            setStackOperaciones(lineaOperaciones);
+        } 
         setPantalla("0");
-
-
-
     }
+
+    const pointOperator = () =>{
+        if(pantalla === "ERROR"){
+            setPantalla('0');
+        }
+        else if(pantalla.length <8 && !pantalla.includes(".")){
+            setPantalla(pantalla+".")
+        }
+    }
+
+    const plusMinusOperator = () =>{
+        if(pantalla === "ERROR"){
+            setPantalla('0');
+        }
+        else if(pantalla.includes('-')){
+            setPantalla(pantalla.substring(1));
+        }
+        else if(pantalla.length <9){
+            setPantalla("-"+pantalla)
+        }
+    }
+
+
+    const handleAppendersOperator = (operatorName) => {
+        if (operatorName === "."){
+            pointOperator();
+        } else{
+            plusMinusOperator();
+        }
+    }
+
+
 
     return (
         <div>
@@ -60,8 +118,8 @@ function Calculator(){
                 </div>
                 {/* Primera fila de operaciones */}
                 <div className = "row">
-                    <TextModifiersOperator simbolo = "C"/>
-                    <TextModifiersOperator simbolo = "CE"/>
+                    <TextModifiersOperator simbolo = "C" modifyScreen = {handleModificationOperator}/>
+                    <TextModifiersOperator simbolo = "CE" modifyScreen = {handleModificationOperator}/>
                     <Operators simbolo='MOD' operador = ' Mod ' pushOperation = {operatorPressed}/>
                     <Operators simbolo='÷' operador = '/' pushOperation = {operatorPressed}/>
                 </div>
@@ -94,9 +152,9 @@ function Calculator(){
                 </div>
                 {/* Quinta fila de numeros y operaciones*/}
                 <div className = "row">
-                    <NumberAddons operacion = '+/-'/>
+                    <NumberAddons operacion = '+/-' addonOperator = {handleAppendersOperator}/>
                     <Numbers numero = {"0"} calculateNumbers = {numberPressed}/>
-                    <NumberAddons operacion = '.'/>
+                    <NumberAddons operacion = '.' addonOperator = {handleAppendersOperator}/>
                     <EqualOperator simbolo = '=' calcularResultado = {calcularResultado}/>
                 </div>
             </div>

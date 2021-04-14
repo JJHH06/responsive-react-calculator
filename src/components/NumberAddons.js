@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react'
 
-const NumberAddons = ({operacion}) =>{
+const NumberAddons = ({operacion,addonOperator}) =>{
+    const clickOperatorListener = e =>{
+        addonOperator(operacion);
+    }
     return (
-        <div className = "col calculator-numbers">
+        <div className = "col calculator-numbers" onClick = {clickOperatorListener}>
             <p className = "calculator-appenders">{operacion}</p>
         </div>
     )
