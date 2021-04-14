@@ -1,92 +1,68 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './style.scss';
+import Numbers from './components/Numbers';
+import NumberAddons from './components/NumberAddons';
+import Operators from './components/Operators';
+import EqualOperator from './components/EqualOperator';
+import TextModifiersOperator from './components/TextModifiersOperators';
+//import { node } from 'webpack';
+
+const numerosCalculadora = [
+    [{numero : '1'},{numero: '2'},{numero: '3'},],
+    [{numero : '4'},{numero: '5'},{numero: '6'},],
+    [{numero : '7'},{numero: '8'},{numero: '9'},]];
 
 
 function Calculator(){
-
     return (
         <div>
             <div className = "container-sm">
                 {/* esto de aca sera la pantalla de la calculadora */}
                 <div className = "row">
-                    <div className = "col">
-                    <h1>Lapan Talla</h1>
+                    <div className = "col calc-screen">
+                    <h1 className = 'calc-screen-caption'>0</h1>
                     </div>
                 </div>
                 {/* Primera fila de operaciones */}
                 <div className = "row">
-                    <div className = "col">
-                    <h1>C</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>CE</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>MOD</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>/</h1>
-                    </div>
+                    <TextModifiersOperator simbolo = "C"/>
+                    <TextModifiersOperator simbolo = "CE"/>
+                    <Operators simbolo='MOD' operador = 'Mod'/>
+                    <Operators simbolo='÷' operador = '/'/>
                 </div>
                 {/* Segunda fila de numeros y operaciones*/}
                 <div className = "row">
-                    <div className = "col">
-                    <h1>7</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>8</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>9</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>X</h1>
-                    </div>
+                {
+                numerosCalculadora[2].map((no,index) => (
+                    <Numbers numero = {no.numero}/>
+                ))
+            }
+                    <Operators simbolo='x' operador = '*'/>
                 </div>
                 {/* Tercera fila de numeros y operaciones*/}
                 <div className = "row">
-                    <div className = "col">
-                    <h1>4</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>5</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>6</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>-</h1>
-                    </div>
+                {
+                numerosCalculadora[1].map((no,index) => (
+                    <Numbers numero = {no.numero}/>
+                ))
+            }
+                    <Operators simbolo='-' operador = '-'/>
                 </div>
                 {/* Cuarta fila de numeros y operaciones*/}
                 <div className = "row">
-                    <div className = "col">
-                    <h1>1</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>2</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>3</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>+</h1>
-                    </div>
+                    {
+                numerosCalculadora[0].map((no,index) => (
+                    <Numbers numero = {no.numero}/>
+                ))
+            }
+                    <Operators simbolo='+' operador = '+'/>
                 </div>
                 {/* Quinta fila de numeros y operaciones*/}
                 <div className = "row">
-                    <div className = "col">
-                    <h1>+/-</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>0</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>.</h1>
-                    </div>
-                    <div className = "col">
-                    <h1>=</h1>
-                    </div>
+                    <NumberAddons operacion = '+/-'/>
+                    <Numbers numero = {"0"}/>
+                    <NumberAddons operacion = '.'/>
+                    <EqualOperator simbolo = '='/>
                 </div>
             </div>
             

@@ -8,6 +8,71 @@
 }
 .col{
     border-style: solid;
+    border-color: gray;
+    border-width: 0.5px;
+    height: 100px ;
 }
+
+.calculator-numbers{
+    background-color: #c7c7c786;
+}
+
+.calculator-numbers:hover{
+    background-color: #c7c7c7;
+    cursor: pointer;
+}
+
+.calculator-appenders{
+    font-size: 50px;
+    text-align: center;
+    font-weight: lighter;
+    color: #4d4a4a;
+}
+
+.calculator-operators:hover{
+    background-color: #becaff8f;
+    cursor: pointer;
+}
+.operators-caption{
+    font-size: 50px;
+    text-align: center;
+    font-weight: lighter;
+    color: #2366f8;
+}
+
+.modifier-caption{
+    font-size: 50px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.modifier-operator{
+    background-color: #2366f8;
+}
+
+.modifier-operator-1{
+    background-color: #becaff8f;
+}
+.modifier-caption-1{
+    font-size: 50px;
+    text-align: center;
+    color:#2366f8;
+}
+
+.modifier-operator-1:hover{
+    background-color: #0d40af5d;
+    cursor: pointer;
+}
+
+.modifier-operator:hover{
+    background-color: #0d40af;
+    cursor: pointer;
+}
+
+.calc-screen-caption{
+    font-size: 50px;
+    text-align: right;
+}
+
 @import "~bootstrap/scss/bootstrap";
 
