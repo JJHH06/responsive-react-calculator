@@ -1,4 +1,4 @@
-# MemoryGameReact JJHH19707
+# responsive-react-calculator JJHH19707
 
 Para crear los archivos se utiliza:
 `npm run build`  
