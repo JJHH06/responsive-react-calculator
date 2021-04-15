@@ -23,7 +23,7 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "name": "MemoryGameReact",
+  "name": "responsive-react-calculator",
   "version": "1.0.0",
   "private": "true",
   "main": "index.js",
@@ -45,14 +45,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JJHH06/MemoryGameReact.git"
+    "url": "git+https://github.com/JJHH06/responsive-react-calculator.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JJHH06/MemoryGameReact/issues"
+    "url": "https://github.com/JJHH06/responsive-react-calculator/issues"
   },
-  "homepage": "https://github.com/JJHH06/MemoryGameReact#readme",
+  "homepage": "https://github.com/JJHH06/responsive-react-calculator#readme",
   "description": ""
 }
