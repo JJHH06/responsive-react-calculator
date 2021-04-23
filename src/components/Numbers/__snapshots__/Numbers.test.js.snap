@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="col calculator-numbers"
+  data-testid="number"
+  onClick={[Function]}
+>
+  <p
+    className="calculator-appenders"
+  >
+    2
+  </p>
+</div>
+`;

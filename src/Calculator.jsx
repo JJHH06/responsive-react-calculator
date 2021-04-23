@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './style.scss';
 import Mexp from 'math-expression-evaluator';
-import Numbers from './components/Numbers';
-import NumberAddons from './components/NumberAddons';
-import Operators from './components/Operators';
-import EqualOperator from './components/EqualOperator';
-import TextModifiersOperator from './components/TextModifiersOperators';
+import Numbers from './components/Numbers/Numbers';
+import NumberAddons from './components/NumberAddons/NumberAddons';
+import Operators from './components/Operators/Operators';
+import EqualOperator from './components/EqualOperator/EqualOperator';
+import TextModifiersOperator from './components/TextModifiersOperator/TextModifiersOperators';
 
 // numeros de la calculadora
 const numerosCalculadora = [
