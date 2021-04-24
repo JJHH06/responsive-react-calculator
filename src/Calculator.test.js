@@ -1,9 +1,8 @@
+/* eslint-disable */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { isTSAnyKeyword } from '@babel/types';
 import { render, cleanup, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import renderer from 'react-test-renderer';
 import Calculator from './Calculator';
 
 afterEach(cleanup);
