@@ -1,5 +1,5 @@
+/* eslint-disable prefer-template */
 import React, { useState } from 'react';
-import './style.scss';
 import Mexp from 'math-expression-evaluator';
 import Numbers from './components/Numbers/Numbers';
 import NumberAddons from './components/NumberAddons/NumberAddons';
@@ -118,42 +118,42 @@ function Calculator() {
         <div className="row">
           <TextModifiersOperator simbolo="C" modifyScreen={handleModificationOperator} />
           <TextModifiersOperator simbolo="CE" modifyScreen={handleModificationOperator} />
-          <Operators simbolo="MOD" operador=" Mod " pushOperation={operatorPressed} />
-          <Operators simbolo="÷" operador="/" pushOperation={operatorPressed} />
+          <Operators simbolo="MOD" testid="operatorMOD" operador=" Mod " pushOperation={operatorPressed} />
+          <Operators simbolo="÷" testid="operator/" operador="/" pushOperation={operatorPressed} />
         </div>
         {/* Segunda fila de numeros y operaciones */}
         <div className="row">
           {
                 numerosCalculadora[2].map((no) => (
-                  <Numbers numero={no.numero} calculateNumbers={numberPressed} />
+                  <Numbers numero={no.numero} id={'number' + no.numero} testid={'testnumber' + no.numero} calculateNumbers={numberPressed} />
                 ))
             }
-          <Operators simbolo="x" operador="*" pushOperation={operatorPressed} />
+          <Operators simbolo="x" operador="*" testid="operator*" pushOperation={operatorPressed} />
         </div>
         {/* Tercera fila de numeros y operaciones */}
         <div className="row">
           {
                 numerosCalculadora[1].map((no) => (
-                  <Numbers numero={no.numero} calculateNumbers={numberPressed} />
+                  <Numbers numero={no.numero} id={'number' + no.numero} testid={'testnumber' + no.numero} calculateNumbers={numberPressed} />
                 ))
             }
-          <Operators simbolo="-" operador="-" pushOperation={operatorPressed} />
+          <Operators simbolo="-" operador="-" testid="operator-" pushOperation={operatorPressed} />
         </div>
         {/* Cuarta fila de numeros y operaciones */}
         <div className="row">
           {
                 numerosCalculadora[0].map((no) => (
-                  <Numbers numero={no.numero} calculateNumbers={numberPressed} />
+                  <Numbers numero={no.numero} id={'number' + no.numero} testid={'testnumber' + no.numero} calculateNumbers={numberPressed} />
                 ))
             }
-          <Operators simbolo="+" operador="+" pushOperation={operatorPressed} />
+          <Operators simbolo="+" operador="+" testid="operator+" pushOperation={operatorPressed} />
         </div>
         {/* Quinta fila de numeros y operaciones */}
         <div className="row">
-          <NumberAddons operacion="+/-" addonOperator={handleAppendersOperator} />
-          <Numbers numero="0" calculateNumbers={numberPressed} />
-          <NumberAddons operacion="." addonOperator={handleAppendersOperator} />
-          <EqualOperator simbolo="=" calcularResultado={calcularResultado} />
+          <NumberAddons operacion="+/-" testid="operator+/-" addonOperator={handleAppendersOperator} />
+          <Numbers numero="0" id="number0" testid="testnumber0" calculateNumbers={numberPressed} />
+          <NumberAddons operacion="." testid="operator." addonOperator={handleAppendersOperator} />
+          <EqualOperator simbolo="=" testid="operator=" calcularResultado={calcularResultado} />
         </div>
       </div>
 

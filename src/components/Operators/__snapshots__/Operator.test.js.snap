@@ -2,15 +2,14 @@
 
 exports[`matches snapshot 1`] = `
 <div
-  className="col calculator-numbers"
-  data-testid="testnumber2"
-  id="number2"
+  className="col calculator-operators"
+  data-testid="operator*"
   onClick={[Function]}
 >
   <p
-    className="calculator-appenders"
+    className="operators-caption"
   >
-    2
+    x
   </p>
 </div>
 `;

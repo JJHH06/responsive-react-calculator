@@ -10,7 +10,7 @@ const Numbers = (props) => {
     item.calculateNumbers(item.numero);
   };
   return (
-    <div className="col calculator-numbers" data-testid="number" onClick={clickNumberListener}>
+    <div className="col calculator-numbers" id={item.id} data-testid={item.testid} onClick={clickNumberListener}>
       <p className="calculator-appenders">{item.numero}</p>
     </div>
   );
